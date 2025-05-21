@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2u3rk5b1e7jy"]
+
+[ext_resource type="Texture2D" uid="uid://cbak6ryhfar5i" path="res://Assets/ground.png" id="1_rhw7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa7jn"]
+size = Vector2(1725, 161)
+
+[node name="Chão" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rhw7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_qa7jn")

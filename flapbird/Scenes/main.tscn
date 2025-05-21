@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn7a8v8jwwg6v"]
+
+[ext_resource type="Texture2D" uid="uid://b2n4hss0uqrki" path="res://Assets/bg.png" id="1_7rjl1"]
+[ext_resource type="Script" uid="uid://cu0yk70wvisxt" path="res://Scenes/main.gd" id="1_cabbd"]
+[ext_resource type="PackedScene" uid="uid://ctp6wurye0p4r" path="res://Scenes/character_body_2d.tscn" id="2_yjtjl"]
+[ext_resource type="PackedScene" uid="uid://b2u3rk5b1e7jy" path="res://Scenes/chão.tscn" id="3_8bbv8"]
+[ext_resource type="Script" uid="uid://yvldeel8f8wd" path="res://Scenes/character_body_2d.gd" id="3_koc5n"]
+[ext_resource type="Texture2D" uid="uid://dmi4mwssh20cc" path="res://Assets/restart.png" id="4_rvnro"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_cabbd")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(434, 383)
+texture = ExtResource("1_7rjl1")
+
+[node name="Passaro" parent="." instance=ExtResource("2_yjtjl")]
+position = Vector2(227, 259)
+script = ExtResource("3_koc5n")
+
+[node name="Chão" parent="." instance=ExtResource("3_8bbv8")]
+position = Vector2(864, 691)
+
+[node name="TelaDerrota" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="TelaDerrota"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.572549)
+
+[node name="BotaoReiniciar" type="Button" parent="TelaDerrota"]
+offset_left = 389.0
+offset_top = 303.0
+offset_right = 517.0
+offset_bottom = 353.0
+icon = ExtResource("4_rvnro")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="body_entered" from="Chão" to="." method="_on_chão_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

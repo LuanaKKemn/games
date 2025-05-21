@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpbsfyiib6b3i"]
+
+[ext_resource type="Texture2D" uid="uid://b31uelr7qh2fs" path="res://Assets/pipe.png" id="1_4u4l8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w51oi"]
+size = Vector2(69, 563)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rks3j"]
+size = Vector2(2, 200)
+
+[node name="Canos" type="Node2D"]
+
+[node name="Cano Superior" type="Sprite2D" parent="."]
+position = Vector2(0, -380)
+texture = ExtResource("1_4u4l8")
+flip_v = true
+
+[node name="AreaSuperior" type="Area2D" parent="."]
+position = Vector2(-2, -451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSuperior"]
+position = Vector2(3.5, 72.5)
+shape = SubResource("RectangleShape2D_w51oi")
+
+[node name="Cano Inferior" type="Sprite2D" parent="."]
+position = Vector2(0, 380)
+texture = ExtResource("1_4u4l8")
+
+[node name="AreaInferior" type="Area2D" parent="."]
+position = Vector2(-2, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInferior"]
+position = Vector2(3.5, 72.5)
+shape = SubResource("RectangleShape2D_w51oi")
+
+[node name="ZonaDePonto" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaDePonto"]
+position = Vector2(102, 3)
+shape = SubResource("RectangleShape2D_rks3j")

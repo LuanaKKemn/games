@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctp6wurye0p4r"]
+
+[ext_resource type="Texture2D" uid="uid://c28obrbfjsf4w" path="res://Assets/bird1.png" id="1_vxbkr"]
+[ext_resource type="Texture2D" uid="uid://b7reth103mcye" path="res://Assets/bird2.png" id="2_ls4a5"]
+[ext_resource type="Texture2D" uid="uid://bcyvhitj4vxci" path="res://Assets/bird3.png" id="3_c5hhd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05msg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vxbkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ls4a5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c5hhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ls4a5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_li8je"]
+radius = 26.0
+height = 52.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_05msg")
+frame_progress = 0.611039
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_li8je")
